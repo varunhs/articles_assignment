@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>View</title>
+  </head>
+  <body>
+    <h1>User view</h1>
+    <form
+      method="POST"
+      action="http://localhost:8000/api/users/"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <input
+        value=""
+        type="text"
+        id="first_name"
+        name="first_name"
+        placeholder="First name"
+      />
+      <input
+        value=""
+        type="text"
+        id="last_name"
+        name="last_name"
+        placeholder="Last name"
+      /><br />
+      <input
+        value=""
+        type="text"
+        id="email_id"
+        name="email_id"
+        placeholder="Email id"
+      />
+      <input value="" type="text" id="dob" name="dob" placeholder="DOB" /><br />
+      <input value="" type="text" id="phone" name="phone" placeholder="Phone" />
+      <input
+        value=""
+        type="text"
+        id="password"
+        name="password"
+        placeholder="Password"
+      /><br />
+      <input
+        value=""
+        type="text"
+        id="gender"
+        name="gender"
+        placeholder="Gender"
+      />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

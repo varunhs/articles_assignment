@@ -1,0 +1,54 @@
+<h4>
+  Click <a href="http://localhost:8000/articlesView/new">here</a> to create an
+  Article
+</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Article Title</th>
+      <th>Description</th>
+      <!-- <th>Content</th> -->
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% articleData.forEach(function(data){ %>
+    <tr>
+      <td><%= data.title %></td>
+      <td><%= data.description %></td>
+      <!-- <td><%= data.content %></td> -->
+      <td>
+        <a href="http://localhost:8000/articlesView/<%= data.id %>">View</a>
+        <button onclick="deleteArticle('<%= data.id %>')">Delete</button>
+        <a href="http://localhost:8000/articlesView/<%= data.id %>/edit">Edit</a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+<script>
+  function deleteArticle(id) {
+    const request = new Request("http://localhost:8000/api/articles/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    fetch(request)
+      .then((result) => {
+        console.log("RESULT", result);
+      })
+      .catch((err) => {
+        console.log("ERROR", err);
+      });
+    console.log("RESULT", request);
+    if (request.status == 200) {
+      console.log("Form submited successfully");
+      // window.location.reload();
+      location.reload(true);
+    } else {
+      console.log("Form not submitted successfully");
+    }
+  }
+</script>

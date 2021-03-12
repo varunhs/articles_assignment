@@ -1,0 +1,96 @@
+<h1>Edit Article</h1>
+<button onclick="window.history.back()">Back</button><br /><br />
+<form>
+  <input type="text" name="id" id="id" value="<%= articleData.id %>" />
+  <input
+    type="text"
+    name="title"
+    id="title"
+    value="<%= articleData.title %>"
+    placeholder="Title"
+  />
+  <input
+    type="text"
+    name="slug"
+    id="slug"
+    value="<%= articleData.slug %>"
+    placeholder="Slug"
+  />
+  <input
+    type="text"
+    name="description"
+    id="description"
+    value="<%= articleData.description %>"
+    placeholder="Description"
+  />
+  <!-- <input
+    type="text"
+    name="content"
+    id="content"
+    value="<%= articleData.content %>"
+    placeholder="Content"
+  /> -->
+  <textarea
+    name="content"
+    cols="20"
+    rows="5"
+    id="content"
+    value="<%= articleData.content %>"
+    placeholder="Content"
+  >
+<%= articleData.content %>
+</textarea
+  >
+
+  <input
+    type="text"
+    name="language"
+    id="language"
+    value="<%= articleData.language %>"
+    placeholder="Language"
+  />
+  <input type="hidden" name="tags" value="{}" />
+  <button type="button" value="Submit" onclick="editArticle()">Submit</button>
+</form>
+<script>
+  function editArticle() {
+    const id = document.getElementById("id").value;
+    const title = document.getElementById("title").value;
+    const slug = document.getElementById("slug").value;
+    const description = document.getElementById("description").value;
+    // const content = document.getElementById("content").value;
+    const content = CKEDITOR.instances.content.getData();
+    const language = document.getElementById("language").value;
+
+    const formData = {
+      title: title,
+      slug: slug,
+      description: description,
+      content: content,
+      language: language,
+    };
+    console.log("FORMDATA", formData);
+    const request = new Request("http://localhost:8000/api/articles/" + id, {
+      method: "PATCH",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    fetch(request)
+      .then((result) => {
+        console.log("Form updated successfully");
+        // window.location.reload();
+      })
+      .catch((err) => {
+        console.log("ERROR", err);
+        console.log("Form not updated successfully");
+      });
+  }
+</script>
+<!-- <script src="/js/ckeditor.js"></script> -->
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace("content");
+</script>

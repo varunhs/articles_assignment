@@ -1,0 +1,60 @@
+<button onclick="window.history.back()">Back</button><br /><br />
+<table>
+  <tbody>
+    <tr>
+      <td>Id</td>
+      <td><%= articleData && articleData.id ? articleData.id : ""%></td>
+    </tr>
+    <tr>
+      <td>Author ID</td>
+      <td>
+        <%= articleData && articleData.author_id? articleData.author_id : "" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td><%= articleData && articleData.title ? articleData.title : "" %></td>
+    </tr>
+    <tr>
+      <td>Slug</td>
+      <td><%= articleData && articleData.slug ? articleData.slug : "" %></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>
+        <%= articleData && articleData.description ? articleData.description :
+        ""%>
+      </td>
+    </tr>
+    <tr>
+      <td>Content</td>
+      <td>
+        <%- articleData && articleData.content ? articleData.content : "" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Language</td>
+      <td>
+        <%= articleData && articleData.language ? articleData.language : "" %>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>Tags</td>
+      <td><%= articleData && articleData.tags ? articleData.tags : "" %></td>
+    </tr>
+    <tr>
+      <td>Deleted</td>
+      <td>
+        <%= articleData && articleData.is_deleted ? articleData.is_deleted : ""
+        %>
+      </td>
+    </tr> -->
+    <tr>
+      <td>Created At</td>
+      <td>
+        <%= articleData && articleData.created_at ? articleData.created_at : ""
+        %>
+      </td>
+    </tr>
+  </tbody>
+</table>
