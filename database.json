@@ -4,17 +4,17 @@
         "driver": "pg",
         "user": "postgres",
         "password": "varun2792",
-        "host": "database-1.c6zge96fig3d.us-east-1.rds.amazonaws.com",
+        "host": "database-2.c6zge96fig3d.us-east-1.rds.amazonaws.com",
         "database": "assignment1_database",
         "port": "5432"
     },
     "stag": {
         "driver": "pg",
-        "user": {"ENV":"DB_USER"},
-        "password": {"ENV":"DB_PASSWORD"},
-        "host": {"ENV":"DB_HOST"},
-        "database":{"ENV":"DB_DATABASE"},
-        "port": {"ENV":"DB_PORT"}
+        "user": "postgres",
+        "password": "varun2792",
+        "host": "database-2.c6zge96fig3d.us-east-1.rds.amazonaws.com",
+        "database":"assignment1_database",
+        "port": "5432"
     },
     "prod": {
         "driver": "pg",
