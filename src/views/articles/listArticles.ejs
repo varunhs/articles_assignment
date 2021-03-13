@@ -1,5 +1,5 @@
 <h4>
-  Click <a href="http://localhost:8000/articlesView/new">here</a> to create an
+  Click <a href="http://3.94.211.109:8000/articlesView/new">here</a> to create an
   Article
 </h4>
 <table>
@@ -18,9 +18,9 @@
       <td><%= data.description %></td>
       <!-- <td><%= data.content %></td> -->
       <td>
-        <a href="http://localhost:8000/articlesView/<%= data.id %>">View</a>
+        <a href="http://3.94.211.109:8000/articlesView/<%= data.id %>">View</a>
         <button onclick="deleteArticle('<%= data.id %>')">Delete</button>
-        <a href="http://localhost:8000/articlesView/<%= data.id %>/edit">Edit</a>
+        <a href="http://3.94.211.109:8000/articlesView/<%= data.id %>/edit">Edit</a>
       </td>
     </tr>
     <% }) %>
@@ -28,7 +28,7 @@
 </table>
 <script>
   function deleteArticle(id) {
-    const request = new Request("http://localhost:8000/api/articles/" + id, {
+    const request = new Request("http://3.94.211.109:8000/api/articles/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
