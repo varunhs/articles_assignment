@@ -3,8 +3,8 @@
     "dev": {
         "driver": "pg",
         "user": "postgres",
-        "password": "r00t",
-        "host": "localhost",
+        "password": "varun2792",
+        "host": "database-1.c6zge96fig3d.us-east-1.rds.amazonaws.com",
         "database": "assignment1_database",
         "port": "5432"
     },
